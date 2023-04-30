@@ -1,0 +1,78 @@
+Задание 6.
+
+Инструкция
+Напишите программу конвертер физических величин:
+
+1. Пользователю предлагается на выбор ввести массу или расстояние. Пример:
+> Выберите что переводить: 1 - масса, 2 - расстояние
+> 2
+
+2. Пользователю предлагается выбрать единицу измерения. Пример:
+> Выберите единицу измерения: 1 - метр, 2 - миля, 3 - ярд, 4 - фут
+> 1
+
+3. Пользователю предлагается ввести количество выбранных единиц:
+> Введите число
+> 10
+> Результат:
+> Метры: 10
+> Мили: 0.006
+> Ярды: 10.94
+> Футы: 32.81
+
+
+package com.max.idea;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Выберите что переводить: 1 - масса, 2 - расстояние :");
+        int chois1 = scan.nextInt();
+
+        switch (chois1) {
+            case (1):
+                System.out.print("Выберите единицу измерения: 1 - кг, 2 - пуд, 3 - англ.фунт :");
+                int chois2 = scan.nextInt();
+                System.out.print("Введите число: ");
+                float num1 = scan.nextFloat();
+                if (chois2 == 1)
+                    System.out.println(("Килограммы: " + num1) + "\n" + ("Пуды: " + num1*0.0610) + "\n" + ("Англ. фунты: " + num1*2.2));
+                else if (chois2 == 2)
+                    System.out.println(("Килограммы: " + num1*16.38) + "\n" + ("Пуды: " + num1) + "\n" + ("Англ. фунты: " + num1*36.11));
+                else if (chois2 == 3)
+                    System.out.println(("Килограммы: " + num1*0.45) + "\n" + ("Пуды: " + num1*0.028) + "\n" + ("Англ.фунты: " + num1));
+                else {
+                    System.out.println("что-то пошло не так");
+                }
+                break;
+
+            case (2):
+                System.out.print("Выберите единицу измерения: 1 - метр, 2 - миля, 3 - ярд, 4 - фут :");
+                int chois3 = scan.nextInt();
+                System.out.print("Введите число: ");
+                double num2 = scan.nextDouble();
+                DecimalFormat format = new DecimalFormat("#0.00000");
+                if (chois3 == 1)
+                    System.out.println(("Метры: " + num2) + "\n" + ("Мили: " + num2*0.00062) + "\n" + ("Ярды: " + num2*1.09)+ "\n" + ("Футы: " + num2*3.28));
+                else if (chois3 == 2)
+                    System.out.println(("Метры: " + num2*11609.34) + "\n" + ("Мили: " + num2) + "\n" + ("Ярды: "+ num2*1760)+ "\n" + ("Футы: " + num2*5280));
+                else if (chois3 == 3)
+                    System.out.printf(("Метры: " + num2*0.91) + "\n" + ("Мили: " ) + (format.format(num2*0.00057)) + "\n" + ("Ярды: " + num2)+ "\n" + ("Футы: " + num2*3));
+                else if (chois3 == 4)
+                    System.out.println(("Метры: " + num2*0.3) + "\n" + ("Мили: ") + (format.format(num2*0.00019)) + "\n" + ("Ярды: " + num2*0.33)+ "\n" + ("Футы: " + num2));
+                else {
+                    System.out.println("что-то пошло не так");
+                }
+                break;
+           case (3):
+                    System.out.println("Внимательно читайте условия. Попробуйте еще раз");
+                break;
+
+        }
+    }
+}
+
