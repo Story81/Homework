@@ -1,0 +1,33 @@
+Задача 4.
+
+1. Ввести три числа с клавиатуры x, y, z
+2. Найти и вывести в консоль среднее арифметическое этих чисел
+3. Разделить среднее арифметическое на 2 и округлить в меньшую сторону
+4. Если полученное число больше 3, то вывести на экран сообщение "Программа выполнена корректно"
+
+Ответ:
+
+package com.max.idea;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+       Scanner scan = new Scanner(System.in);
+       System.out.print("Введите первое число: ");
+        float numx = scan.nextFloat();
+       System.out.print("Введите второе число: ");
+        float numy = scan.nextFloat();
+       System.out.print("Введите третье число: ");
+        float numz = scan.nextFloat();
+
+       float srednee = ((numx + numy + numz) / 3);
+        System.out.println("Среднее арифметическое чисел = " + srednee);
+
+        int result = (int)Math.floor(srednee / 2);
+
+        if (result >= 3)
+            System.out.println("Программа выполнена корректно");
+    }
+}
+__
