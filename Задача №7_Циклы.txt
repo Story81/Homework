@@ -1,0 +1,27 @@
+Задача №7_Циклы
+Ответ:
+
+package com.max.idea;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int x = 2, y = 3, z = 4;
+
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите длину массива: ");
+        int size = scan.nextInt();
+        int[] nums = new int[size];
+        System.out.print("Введите числа в массив: ");
+        for (int i = 0; i < size; i++) {
+            nums[i] = scan.nextInt(); // Заполняем массив элементами
+        }
+        for (int i = 0; i < size; i++) {
+            if ( nums[i] == x || nums[i] == y || nums[i] == z) {
+                System.out.println("Данное значение имеется в константах");
+                     }
+        }
+    }
+}
