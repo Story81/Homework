@@ -1,0 +1,33 @@
+Задача №10_Циклы
+Напишите программу, где пользователь вводит данные с клавиатуры в матрицу, а после этого произведите вывод первой строки матрицы на экран, где каждый элемент умножается на 3. Размерность матрицы задается пользователем.
+
+
+
+package com.max.idea;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.print("Введите колличество строк: ");
+        int a = scan.nextInt();
+        System.out.print("Введите колличество столбцов: ");
+        int b = scan.nextInt();
+        int[][] arr = new int[a][b];
+        System.out.println("Введите числа в массив: ");
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = scan.nextInt();
+            }
+        }
+        int i= 0;
+        for (int j = 0; j < arr[i].length; j++) {
+            System.out.print(arr[i][j]*3 + " ");
+        }
+    }
+}
