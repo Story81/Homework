@@ -1,0 +1,16 @@
+package com.max.idea;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите строку: ");
+        String s = scan.nextLine();
+        if (s.contains("Java") && s.startsWith("I like") && s.endsWith("!!!")) {
+            System.out.println(s.toUpperCase());
+            String d = s.replace('a', 'o');
+            System.out.println(d.substring(7, 11));
+        }
+    }
+}
