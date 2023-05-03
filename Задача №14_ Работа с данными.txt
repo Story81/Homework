@@ -1,0 +1,42 @@
+Задача №14_ Работа с данными
+
+Напишите программу, заполняющую массив из 15 элементов рандомными значениями в диапазоне от -20 до 20. Далее:
+
+
+1. Выведите максимальный и минимальный элемент массива.
+
+2. Из максимального и минимального значения выведите наибольшее по модулю.
+
+Ответ:
+
+package com.max.idea;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = new int[15];
+
+        for (
+                int i = 0; i < array.length; i++) {
+            array[i] = ((int) (Math.random() * 41) - 20);
+            System.out.println(array[i]);
+        }
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min)
+                min = array[i];
+        }
+            System.out.println("Минимальный элемент: " + min);
+
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max)
+                max = array[i];
+        }
+        System.out.println("Максимальный элемент: " + max);
+
+        int mod = Math.max (Math.abs(min),Math.abs(max));
+
+        System.out.println("Максимальный элемент по модулю: " + mod);
+
+    }
+}
