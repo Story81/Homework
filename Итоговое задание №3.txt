@@ -1,0 +1,39 @@
+package com.max.idea;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int n = 0;
+        System.out.print("Введите количество строк: ");
+        Scanner sc1 = new Scanner(System.in);
+        n = sc1.nextInt();
+        String[] str = new String[n];
+        Scanner scan2 = new Scanner(System.in);
+        for (int i = 0; i < str.length; i++) {
+            System.out.print("Введите строку №" + (i + 1) + ": ");
+            str[i] = scan2.nextLine();
+        }
+        for (int i = 0; i < str.length; i++) {
+            System.out.println(str[i]);
+        }
+
+        int maxStr= 0;
+        int maxCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            Set<Character> characterSet = new HashSet<>();
+            for (int j = 0; j < str[i].length(); j++) {
+                characterSet.add(str[i].charAt(j));
+            }
+            if (characterSet.size() > maxCount) {
+                maxStr= i;
+                maxCount = characterSet.size();
+            }
+        }
+        System.out.println("Строка с максимальным количеством различных символов: " + str[maxStr]);
+    }
+}
