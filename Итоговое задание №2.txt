@@ -1,0 +1,82 @@
+Напишите программу, которая позволит решить простое уравнение относительно x. Программа принимает на вход строку длиной 5 символов.
+Второй символ строки является знаком ‘+’ или ‘-’, четвертый символ строки ‘=’.
+Первым, третьим и пятым символом являются две цифры (от 0 до 9) и буква ‘x’ (обозначает неизвестное) в любом порядке.
+
+Нужно найти неизвестное.
+
+Пример для теста работы программы:
+
+- Ввод: x+5=7
+- Вывод: 2
+- Ввод: 3-x=9
+- Вывод: -6
+- Ввод: 3-3=x
+- Вывод: 0
+
+Ответ:
+
+    package com.max.idea;
+
+    import java.util.Scanner;
+
+    public class Main {
+
+        public static void main(String[] args) {
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Введите уравнение из 5 символов: ");
+            String ur= scanner.nextLine();
+            char znak1= ur.charAt(0);
+            char znak2 = ur.charAt(1);
+            char znak3 = ur.charAt(2);
+            char znak4 = ur.charAt(3);
+            char znak5 = ur.charAt(4);
+            int intznak3 = Character.getNumericValue(znak3);
+            int intznak5 = Character.getNumericValue(znak5);
+            int intznak1 = Character.getNumericValue(znak1);
+           System.out.println(znak1 + " " + znak2 + " " + znak3 + " " + znak4 + " " + znak5);
+            int a =ur.length();
+if (a != 5) {
+System.out.println("Длина строки должна быть = 5");
+}
+
+            switch (znak1) {
+                case 'x':
+                     if (znak3 == 'x' || znak5 == 'x') {
+                         System.out.println("Это уравнение с одним неизвестным!");
+                        }   else if (znak2 == '+' && znak4 == '=') {
+                            System.out.println("x = " + (intznak5 - intznak3));
+                        }   else if (znak4 == '='&& znak2 == '-') {
+                            System.out.println("x = " + (intznak5 + intznak3));
+                        }   else if (znak3 == 'x' || znak2 == 'x') {
+                            System.out.println("Это уравнение с одним неизвестным!");
+            } else
+                            System.out.println("Проверьте правильность ввода уравнения");
+                    break;
+            }
+            switch (znak3) {
+                case 'x' :
+                    if (znak1 == 'x' || znak5 == 'x') {
+                       // if (znak3 == 'x' || znak5 == 'x') {
+                        //    System.out.println("Это уравнение с одним неизвестным!");
+                    } else if (znak2 == '+' && znak4 == '=') {
+                         System.out.println("x = " + (intznak5 - intznak1));
+                     }  else if (znak2 == '-'&& znak4 == '=') {
+                         System.out.println("x = " + (intznak1 - intznak5));
+                     }
+                     else
+                         System.out.println("Проверьте правильность ввода уравнения");
+                    break;
+            }
+            switch (znak5) {
+                case 'x' :
+                    if (znak2 == '+'&& znak4 == '=') {
+                        System.out.println("x = " + (intznak1 + intznak3));
+                    } else if (znak2 == '-'&& znak4 == '=') {
+                        System.out.println("x = " + (intznak1 - intznak3));
+                    }   else
+                        System.out.println("Проверьте правильность ввода уравнения");
+                    break;
+            }
+        }
+    }
