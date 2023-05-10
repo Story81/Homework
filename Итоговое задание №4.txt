@@ -1,0 +1,52 @@
+
+package com.max.idea;
+
+
+import java.util.Scanner;
+
+
+    public class Main {
+        public static void main(String[] args) {
+
+            int attempts = 3;
+            boolean steer = false; // подсказка
+
+            String correctAnswer = "Заархивированный вирус";
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Сидит дед, во сто шуб одет, кто его раздевает, тот слезы проливает");
+
+            while (attempts > 0) {
+                String answer = scanner.nextLine();
+
+                if (answer.equalsIgnoreCase(correctAnswer)) {
+                    System.out.println("Правильно!");
+                    return;
+
+                } else if (answer.equalsIgnoreCase("подсказка")) {
+                    if (!steer && attempts == 3) {
+                        System.out.println("ZIP-вредитель");
+                        steer = true;
+                        attempts =2;
+                     } else if (!steer && attempts == 2) {
+                        System.out.println("Подсказка уже недоступна");
+                        steer = true;
+                        attempts =2;
+                    } else if (!steer && attempts == 1) {
+                        System.out.println("Подсказка уже недоступна");
+                        steer = true;
+                        attempts =1;
+                    } else {
+                        System.out.println("Подсказка уже недоступна");
+                        attempts =1;
+                    }
+                } else if (attempts == 1) {
+                    System.out.println("Обидно, приходи в другой раз");
+                    return;
+                } else {
+                    System.out.println("Подумай еще!");
+                    attempts--;
+                }
+            }
+        }
+    }
